@@ -1,12 +1,35 @@
-# React + Vite
+# Turbash Negi's Gamified Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A unique, interactive portfolio inspired by Clash of Clans (CoC), built with React and Vite.  
+Move buildings, click to explore portfolio sections, and enjoy a playful UI reminiscent of the classic mobile game.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Clash of Clans-inspired UI:** Buildings, draggable layout, and animated villager intro.
+- **Interactive Portfolio:** Click on buildings to view different sections (skills, projects, contact, etc.).
+- **Responsive & Modern:** Built with React, Vite, and Tailwind CSS.
 
-## Expanding the ESLint configuration
+## How to Run
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+2. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+3. **Open your browser:**  
+   Visit [http://localhost:5173](http://localhost:5173) (or the port shown in your terminal).
+
+## System Requirements
+
+- Node.js (v16 or newer recommended)
+- npm
+
+## Credits & Inspiration
+
+- Inspired largely by the UI and playful experience of **Clash of Clans**.
+- All assets and code are for personal, non-commercial use.
+
+---
