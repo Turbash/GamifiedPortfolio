@@ -132,10 +132,10 @@ export default function VillageDashboard() {
   const SelectedComponent = selected ? buildingInfo[selected].component : null;
 
   return (
-    <div className="absolute top-0 left-0 w-screen h-screen pointer-events-none village-dashboard-root">
+    <div className="absolute top-0 left-0 w-screen h-screen pointer-events-none village-dashboard-root font-youblockhead">
       {showIntro && (
         <div
-          className="fixed inset-0 z-[100] flex items-end pointer-events-auto bg-black/30"
+          className="fixed inset-0 z-[100] flex items-end pointer-events-auto bg-black/30 font-youblockhead"
           onClick={handleIntroHide}
         >
           <div className="relative flex items-end h-[40vh] w-full">
@@ -170,7 +170,6 @@ export default function VillageDashboard() {
               draggingKey === b.key ? 'cursor-grabbing' : 'cursor-pointer'
             }`}
             style={{
-              // Only left/top are dynamic, rest can be Tailwind
               left: b.x,
               top: b.y,
               width: `${b.width}px`,
@@ -203,20 +202,20 @@ export default function VillageDashboard() {
         </React.Fragment>
       ))}
       {!showIntro && selected && (
-        <div
-          className="fixed left-1/2 top-1/2 z-50 bg-yellow-100 border-4 border-yellow-600 rounded-xl shadow-2xl p-6 flex flex-col items-center pointer-events-auto
-            min-w-[300px] min-h-[200px] max-w-[80vw] max-h-[80vh] transform -translate-x-1/2 -translate-y-1/2"
-        >
-          <h2 className="text-2xl font-bold mb-2">{buildingInfo[selected].title}</h2>
-          <div className="mb-4 text-center w-full flex-1 overflow-auto">
-            {SelectedComponent && <SelectedComponent />}
+        <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-auto bg-black/30 font-youblockhead">
+          <div className="bg-white border-4 border-gray-500 rounded-xl min-w-[320px] max-w-[90vw] max-h-[85vh] shadow-2xl overflow-hidden flex flex-col">
+            <div className="flex items-center justify-between bg-gray-500 border-b-2 border-gray-500 px-6 py-4">
+              <h2 className="text-2xl font-bold text-white">{buildingInfo[selected].title}</h2>
+              <button
+                className="bg-red-600 hover:bg-red-700 text-white font-extrabold text-xl rounded-full w-9 h-9 flex items-center justify-center ml-4"
+                onClick={() => setSelected(null)}
+                aria-label="Close"
+              >×</button>
+            </div>
+            <div className="p-6 flex-1 overflow-auto">
+              {SelectedComponent && <SelectedComponent />}
+            </div>
           </div>
-          <button
-            className="mt-4 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded shadow"
-            onClick={() => setSelected(null)}
-          >
-            Close
-          </button>
         </div>
       )}
     </div>
