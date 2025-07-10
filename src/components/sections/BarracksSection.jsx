@@ -1,35 +1,59 @@
 import React from "react";
 
 const projects = [
-	{
-		name: "UFC Fight Predictor 2.0",
-		desc: "Next.js + AI-powered fight prediction app",
-		tech: ["Next.js", "Python", "Streamlit", "Hugging Face"],
-		github: "https://github.com/turbash/UFC-Fight-Predictor",
-		features: ["Predicts fight winner & method", "AI explanation", "Charts"],
-	},
-	{
-		name: "Packing List AI App (WIP)",
-		desc: "Smart app that generates travel packing lists with AI",
-		tech: ["React", "Zustand", "LangChain"],
-		features: [
-			"Destination-aware suggestions",
-			"Weather integration",
-			"Item categories",
-		],
-	},
-	{
-		name: "Realtime Chat App",
-		desc: "Full-stack web chat with real-time messaging",
-		tech: ["React", "Node.js", "Firebase", "Tailwind CSS"],
-		features: [],
-	},
-	{
-		name: "Blog Website + CMS",
-		desc: "Lightweight blog using Markdown",
-		tech: ["Next.js", "Tailwind CSS", "Zustand"],
-		features: [],
-	},
+    {
+        name: "HolidayPlanner2.0",
+        desc: "Smart holiday planner blending JavaScript and Python for itinerary optimization.",
+        tech: ["JavaScript", "Python", "Hugging Face"],
+        github: "https://github.com/Turbash/HolidayPlanner2.0",
+        features: [
+            "Itinerary suggestions",
+            "Weather integration",
+			"Suggested restaurants and Hotels",
+            "Interactive frontend"
+        ],
+    },
+    {
+        name: "TubeFetch",
+        desc: "Python tool to fetch and process YouTube data.",
+        tech: ["Python","Discord.py"],
+        github: "https://github.com/Turbash/TubeFetch",
+        features: [
+            "YouTube API integration",
+            "Data extraction"
+        ],
+    },
+    {
+        name: "Metro Route Optimizer",
+        desc: "C++ application to optimize metro routes for efficient travel.",
+        tech: ["C++", "QT"],
+        github: "https://github.com/Turbash/Metro-Route-Optimizer",
+        features: [
+            "Route optimization",
+            "Graph algorithms",
+            "User-friendly interface"
+        ],
+    },
+    {
+        name: "ContactSaver",
+        desc: "Automatic contact saving Android application.",
+        tech: ["Kotlin"],
+        github: "https://github.com/Turbash/ContactSaver",
+        features: [
+            "Automated contact management",
+            "Android app"
+        ],
+    },
+    {
+        name: "Paste-App",
+        desc: "Sample paste text editor for quick text sharing and editing.",
+        tech: ["JavaScript", "CSS", "HTML"],
+        github: "https://github.com/Turbash/Paste-App",
+        features: [
+            "Paste and edit text",
+            "Lightweight UI"
+        ],
+    }
 ];
 
 export default function BarracksSection() {
@@ -77,10 +101,6 @@ export default function BarracksSection() {
 						)}
 					</div>
 				))}
-			</div>
-			<div className="mt-4 text-sm text-gray-600">
-				<span className="font-semibold">Internships:</span> Not listed yet, but
-				available on resume.
 			</div>
 		</div>
 	);

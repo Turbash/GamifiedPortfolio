@@ -2,29 +2,24 @@ import React from 'react';
 
 const achievements = [
   {
-    title: "Winner – COMSOC HackX 2025",
-    desc: 'For “IDSentinel,” an identity verification system using deepfake detection + zero-knowledge proofs',
-    icon: "🏆",
+    title: "National Space Hackathon Finalist – IIT Delhi & ISRO",
+    desc: "Top 10 finalist team in a national-level hackathon organized by IIT Delhi in collaboration with ISRO.",
+    icon: "🚀",
   },
   {
-    title: "Coursera Certificate – Generative AI with LangChain – 2025",
-    desc: "",
-    icon: "📜",
+    title: "Second Prize – Electro Battle, Volt Club, SOE JNU",
+    desc: "Secured 2nd place in Electro Battle, a competitive event organized by Volt Club, School of Engineering, JNU.",
+    icon: "⚡️",
   },
   {
-    title: "Google UX Design Certificate – 2024",
-    desc: "",
-    icon: "🎨",
+    title: "First Prize – Doon School Chess Tournament",
+    desc: "Won first prize in the inter-school team event at The Doon School Chess Tournament.",
+    icon: "♟️",
   },
   {
-    title: "First Place – College Hackathon 2024",
-    desc: "For a real-time ML-powered food waste tracker",
-    icon: "🥇",
-  },
-  {
-    title: "3rd Year Scholarship Awarded – Academic Excellence – 2023",
-    desc: "",
-    icon: "🎓",
+    title: "Individual & Team First Prize – Woodstock School Chess Competition",
+    desc: "Won both individual and team first prizes at the Woodstock School Chess Competition.",
+    icon: "🏅",
   },
 ];
 

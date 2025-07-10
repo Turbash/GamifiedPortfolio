@@ -1,41 +1,42 @@
 import React from "react";
+import { FaEnvelope, FaLinkedin, FaGithub, FaTwitter, FaGlobe, FaDiscord } from "react-icons/fa";
 
 const contacts = [
 	{
 		label: "Email",
-		value: "turbashnegi@gmail.com",
-		icon: "✉️",
-		link: "mailto:turbashnegi@gmail.com",
+		value: "turbas91_soe@jnu.ac.in",
+		icon: <FaEnvelope className="text-green-700" />,
+		link: "mailto:turbas91_soe@jnu.ac.in",
 	},
 	{
 		label: "LinkedIn",
-		value: "linkedin.com/in/turbash",
-		icon: "💼",
-		link: "https://linkedin.com/in/turbash",
+		value: "linkedin.com/in/turbash-negi",
+		icon: <FaLinkedin className="text-blue-700" />,
+		link: "https://linkedin.com/in/turbash-negi",
 	},
 	{
 		label: "GitHub",
-		value: "github.com/turbash",
-		icon: "🐙",
-		link: "https://github.com/turbash",
+		value: "github.com/Turbash",
+		icon: <FaGithub className="text-gray-800" />,
+		link: "https://github.com/Turbash",
 	},
 	{
 		label: "Twitter",
-		value: "twitter.com/turbashcodes",
-		icon: "🐦",
-		link: "https://twitter.com/turbashcodes",
+		value: "twitter.com/Rawatdeepi27862",
+		icon: <FaTwitter className="text-blue-400" />,
+		link: "https://twitter.com/Rawatdeepi27862",
 	},
 	{
 		label: "Website",
-		value: "turbash.vercel.app",
-		icon: "🌐",
-		link: "https://turbash.vercel.app",
+		value: "portfolio-website-ten-black-33.vercel.app",
+		icon: <FaGlobe className="text-green-800" />,
+		link: "https://portfolio-website-ten-black-33.vercel.app/",
 	},
 	{
 		label: "Discord",
-		value: "turbash#1291336227005403156",
-		icon: "🎮",
-		link: null,
+		value: "discord.com/users/1291336227005403156",
+		icon: <FaDiscord className="text-indigo-600" />,
+		link: "https://discord.com/users/1291336227005403156",
 	},
 ];
 
@@ -57,13 +58,13 @@ export default function ArcherSection() {
 								href={c.link}
 								target="_blank"
 								rel="noopener noreferrer"
-								className="text-green-800 font-semibold hover:underline"
+								className="text-green-800 font-semibold hover:underline flex items-center gap-1"
 							>
 								{c.label}:{" "}
 								<span className="font-normal">{c.value}</span>
 							</a>
 						) : (
-							<span className="text-green-800 font-semibold">
+							<span className="text-green-800 font-semibold flex items-center gap-1">
 								{c.label}:{" "}
 								<span className="font-normal">{c.value}</span>
 							</span>
