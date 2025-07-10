@@ -6,7 +6,7 @@ export default function CannonSection() {
       <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
         💣 Coding Challenges
       </h2>
-      <div className="bg-gray-50 border-l-4 border-gray-400 rounded px-4 py-3 shadow-sm mb-4">
+      <div className="bg-gray-50 border-l-4 border-gray-400 rounded px-4 py-3 shadow-sm mb-4 overflow-x-hidden">
         <div className="flex items-center gap-2">
           <span className="font-semibold text-gray-800">LeetCode:</span>
           <a

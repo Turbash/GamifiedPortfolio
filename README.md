@@ -27,9 +27,11 @@ Move buildings, click to explore portfolio sections, and enjoy a playful UI remi
 - Node.js (v16 or newer recommended)
 - npm
 
-## Credits & Inspiration
+## Credits & Legal
 
-- Inspired largely by the UI and playful experience of **Clash of Clans**.
-- All assets and code are for personal, non-commercial use.
+- **All images, icons, and audio assets used in this site are the property of Supercell and Clash of Clans.**
+- I am **not** the creator or owner of any images, icons, or sounds used here. They were sourced from the internet and are used for personal, non-commercial, fan portfolio purposes only.
+- This project is not affiliated with, endorsed by, or sponsored by Supercell or Clash of Clans in any way.
+- If you are a rights holder and wish for any asset to be removed, please contact me.
 
 ---

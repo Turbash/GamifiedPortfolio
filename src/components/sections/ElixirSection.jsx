@@ -9,22 +9,22 @@ const skills = [
 	{
 		category: "Backend",
 		icon: "🛠️",
-		items: ["Node.js", "Express.js", "MongoDB", "Firebase"],
+		items: ["Node.js", "Express.js", "MongoDB", "FastAPI"],
 	},
 	{
 		category: "Languages",
 		icon: "💻",
-		items: ["JavaScript", "Python", "Java"],
+		items: ["JavaScript", "Python", "Java","C++", "Kotlin"],
 	},
 	{
 		category: "AI/ML",
 		icon: "🤖",
-		items: ["LangChain", "Hugging Face", "OpenAI API", "Streamlit"],
+		items: ["LangChain", "Hugging Face", "OpenAI API"],
 	},
 	{
 		category: "Other Tools",
 		icon: "🧰",
-		items: ["Git", "Postman", "Vercel", "Zustand", "Framer Motion"],
+		items: ["Git", "Postman", "Vercel", "Framer Motion"],
 	},
 	{
 		category: "Soft Skills",

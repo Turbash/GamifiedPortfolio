@@ -50,7 +50,7 @@ export default function ArcherSection() {
 				{contacts.map((c, i) => (
 					<li
 						key={i}
-						className="flex items-center gap-3 bg-green-50 border-l-4 border-green-400 rounded px-4 py-2 shadow-sm"
+						className="flex items-center gap-3 bg-green-50 border-l-4 border-green-400 rounded px-4 py-2 shadow-sm overflow-x-hidden"
 					>
 						<span className="text-xl">{c.icon}</span>
 						{c.link ? (
