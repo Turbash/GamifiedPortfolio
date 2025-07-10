@@ -52,7 +52,6 @@ const achievements = [
 export default function GoldSection() {
   const [modalOpen, setModalOpen] = useState(false);
 
-  // Example project data
   const projects = [
     {
       name: "Portfolio Website",
