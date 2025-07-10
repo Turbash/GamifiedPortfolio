@@ -26,9 +26,12 @@ export default function Loading({ handleLoadingContinue }) {
           <img
             src="/clash_logo.png"
             alt="Clash of Clans Logo"
-            className="w-96 h-auto mb-12"
+            className="w-96 h-auto mb-8"
             style={{ maxWidth: "80vw" }}
           />
+          <div className="mb-10 text-white text-lg sm:text-xl font-semibold text-center drop-shadow-lg">
+            Once upon a time in a clearing in a magical forest ...
+          </div>
           <button
             className="px-8 py-4 bg-yellow-500 hover:bg-yellow-600 text-white text-xl font-bold rounded-lg shadow-lg border-2 border-yellow-700 pointer-events-auto"
             onClick={handleStartVideo}
