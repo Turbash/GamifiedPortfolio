@@ -5,8 +5,13 @@ import ElixirSection from './sections/ElixirSection';
 import BarracksSection from './sections/BarracksSection';
 import CannonSection from './sections/CannonSection';
 import ArcherSection from './sections/ArcherSection';
+import BuildingSection from './BuildingSection';
+import Building from './Building';
 import { playSound } from '../utils/sound';
 import './VillageDashboard.css'; 
+import Intro from './Intro';
+import Loading from './Loading';
+import MusicSwitch from './MusicSwitch';
 
 const initialBuildings = [
   { key: 'townhall', x: '48%', y: '37%', img: '/buildings/townhall.webp', width: 90, height: 90 },
@@ -24,12 +29,12 @@ const buildingInfo = {
     component: TownhallSection,
   },
   gold: {
-    title: "Gold Storage",
+    title: "Gold Mine",
     description: "Achievements and awards",
     component: GoldSection,
   },
   elixir: {
-    title: "Elixir Storage",
+    title: "Elixir Collector",
     description: "Skills and technologies",
     component: ElixirSection,
   },
@@ -210,148 +215,54 @@ export default function VillageDashboard() {
   return (
     <div className="absolute top-0 left-0 w-screen h-screen pointer-events-none village-dashboard-root font-youblockhead">
       {!loading && (
-        <div className="fixed top-4 right-4 z-[300] pointer-events-auto">
-          <button
-            className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-4 py-2 rounded-lg shadow-lg border-2 border-yellow-700"
-            onClick={() => setShowMusicMenu((v) => !v)}
-          >
-            🎵 Music
-          </button>
-          {showMusicMenu && (
-            <div className="mt-2 bg-white border border-gray-300 rounded-lg shadow-lg p-3 flex flex-col min-w-[180px]">
-              <button
-                className={`text-left px-2 py-1 rounded hover:bg-yellow-100 font-semibold ${bgMusicSrc === '/audios/background_music.ogg' ? 'bg-yellow-200' : ''}`}
-                onClick={() => {
-                  setBgMusicSrc('/audios/background_music.ogg');
-                  setShowMusicMenu(false);
-                }}
-              >
-                Default Music
-              </button>
-              <button
-                className={`text-left px-2 py-1 rounded hover:bg-yellow-100 font-semibold ${bgMusicSrc === '/audios/og_background_music.mp3' ? 'bg-yellow-200' : ''}`}
-                onClick={() => {
-                  setBgMusicSrc('/audios/og_background_music.mp3');
-                  setShowMusicMenu(false);
-                }}
-              >
-                OG Music
-              </button>
-            </div>
-          )}
-        </div>
+        <MusicSwitch
+          bgMusicSrc={bgMusicSrc}
+          setBgMusicSrc={setBgMusicSrc}
+          showMusicMenu={showMusicMenu}
+          setShowMusicMenu={setShowMusicMenu}
+        />
       )}
       {loading && (
-        <div className="fixed inset-0 z-[200] flex flex-col items-end justify-end bg-black pointer-events-auto">
-          <video
-            src="/coc_loading.webm"
-            autoPlay
-            loop
-            muted
-            playsInline
-            controls={false}
-            className="fixed inset-0 w-full max-h-full z-0"
-            style={{ objectFit: 'cover' }}
-            onLoadedData={e => {
-              e.target.play().catch(() => {});
-            }}
-          />
-          <div className="relative w-full flex justify-center z-10 pb-12">
-            <button
-              className="px-8 py-4 bg-yellow-500 hover:bg-yellow-600 text-white text-xl font-bold rounded-lg shadow-lg border-2 border-yellow-700 pointer-events-auto"
-              onClick={handleLoadingContinue}
-            >
-              Click to Continue
-            </button>
-          </div>
-        </div>
+        <Loading handleLoadingContinue={handleLoadingContinue} />
       )}
       {!loading && (
         <>
           {introStarted && showIntro && (
-            <div
-              className="fixed inset-0 z-[100] flex items-end pointer-events-auto bg-black/30 font-youblockhead"
-              onClick={handleIntroHide}
-            >
-              <div className="relative flex items-end h-[40vh] w-full">
-                <img
-                  src="/villager.webp"
-                  alt="Villager"
-                  className={`absolute bottom-[30%] left-[10%] h-70 w-auto transition-transform duration-700 ease-in-out
-                    ${introState === 'visible' ? 'villager-in' : 'villager-out-left'}`}
-                />
-                <div
-                  className={`absolute left-[30%] bottom-[35%] bg-white border-2 border-gray-300 rounded-xl shadow-lg px-6 py-4 max-w-md text-lg font-medium text-gray-800
-                    transition-transform duration-700 ease-in-out
-                    ${introState === 'visible' ? 'bubble-in' : 'bubble-out-left'}`}
-                >
-                  <span>
-                    Hello Chief!<br />
-                    This is <span className="font-bold">Turbash Negi&apos;s</span> portfolio.<br />
-                    Click on the buildings to know more about him.<br />
-                    (Tip: You can move the buildings around!)
-                  </span>
-                  <div className="text-xs text-gray-500 mt-2">(Click anywhere to continue)</div>
-                </div>
-              </div>
-            </div>
+            <Intro
+              introState={introState}
+              handleIntroHide={handleIntroHide}
+            />
           )}
           {buildings.map((b) => (
-            <React.Fragment key={b.key}>
-              <img
-                src={b.img}
-                alt=""
-                className={`absolute select-none pointer-events-auto ${
-                  draggingKey === b.key ? 'cursor-grabbing' : 'cursor-pointer'
-                }`}
-                style={{
-                  left: b.x,
-                  top: b.y,
-                  width: `${b.width}px`,
-                  height: `${b.height}px`,
-                  zIndex: selected === b.key ? 20 : 10,
-                  touchAction: 'none',
-                }}
-                onMouseDown={(e) => handleDragStart(e, b)}
-                onTouchStart={(e) => handleDragStart(e, b)}
-                onClick={() => handleBuildingClick(b)}
-                onMouseEnter={() => setHovered(b.key)}
-                onMouseLeave={() => setHovered(null)}
-                onTouchEnd={() => setHovered(null)}
-              />
-              {hovered === b.key && !selected && !showIntro && (
-                <div
-                  className="absolute pointer-events-none z-50 min-w-[180px] max-w-[240px] left-0 top-0"
-                  style={{
-                    left: `calc(${b.x} + ${b.width / 2}px)`,
-                    top: `calc(${b.y} - 10px)`,
-                    transform: 'translate(-50%, -100%)',
-                  }}
-                >
-                  <div className="bg-yellow-200 border-2 border-yellow-600 rounded-lg shadow-lg px-4 py-2 text-center animate-fade-in">
-                    <div className="font-bold text-yellow-900 text-lg">{buildingInfo[b.key].title}</div>
-                    <div className="text-yellow-800 text-sm">{buildingInfo[b.key].description}</div>
-                  </div>
-                </div>
-              )}
-            </React.Fragment>
+            <Building
+              key={b.key}
+              img={b.img}
+              left={b.x}
+              top={b.y}
+              width={b.width}
+              height={b.height}
+              zIndex={selected === b.key ? 20 : 10}
+              dragging={draggingKey === b.key}
+              onMouseDown={e => handleDragStart(e, b)}
+              onTouchStart={e => handleDragStart(e, b)}
+              onClick={() => handleBuildingClick(b)}
+              onMouseEnter={() => setHovered(b.key)}
+              onMouseLeave={() => setHovered(null)}
+              onTouchEnd={() => setHovered(null)}
+              showTooltip={hovered === b.key && !selected && !showIntro}
+              tooltipTitle={buildingInfo[b.key].title}
+              tooltipDesc={buildingInfo[b.key].description}
+              tooltipLeft={`calc(${b.x} + ${b.width / 2}px)`}
+              tooltipTop={`calc(${b.y} - 10px)`}
+            />
           ))}
           {!showIntro && selected && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-auto bg-black/30 font-youblockhead">
-              <div className="bg-white border-4 border-gray-500 rounded-xl min-w-[320px] max-w-[90vw] max-h-[85vh] shadow-2xl overflow-hidden flex flex-col">
-                <div className="flex items-center justify-between bg-gray-500 border-b-2 border-gray-500 px-6 py-4">
-                  <h2 className="text-2xl font-bold text-white">{buildingInfo[selected].title}</h2>
-                  <button
-                    className="bg-red-600 hover:bg-red-700 text-white font-extrabold text-xl rounded-full w-9 h-9 flex items-center justify-center ml-4"
-                    onClick={() => setSelected(null)}
-                    aria-label="Close"
-                  >×</button>
-                </div>
-                <div className="p-6 flex-1 overflow-auto">
-                  {SelectedComponent && <SelectedComponent />}
-                </div>
-              </div>
-            </div>
+            <BuildingSection
+              title={buildingInfo[selected].title}
+              onClose={() => setSelected(null)}
+            >
+              {SelectedComponent && <SelectedComponent />}
+            </BuildingSection>
           )}
         </>
       )}

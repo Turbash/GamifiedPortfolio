@@ -4,9 +4,9 @@ export default function TownhallSection() {
   return (
     <div className="flex flex-col items-center gap-4">
       <img
-        src="/assets/me.png"
+        src="/me.png"
         alt="Turbash Negi"
-        className="w-24 h-24 rounded-full border-4 border-gray-400 shadow-lg mb-2"
+        className="w-36 h-36 rounded-full border-4 border-gray-400 shadow-lg mb-2"
       />
       <h2 className="text-2xl font-bold text-gray-800 flex items-center gap-2">
         🏰 Turbash Negi

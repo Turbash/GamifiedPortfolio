@@ -33,7 +33,7 @@ const contacts = [
 	},
 	{
 		label: "Discord",
-		value: "turbash#8795",
+		value: "turbash#1291336227005403156",
 		icon: "🎮",
 		link: null,
 	},
